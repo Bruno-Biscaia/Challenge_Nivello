@@ -13,49 +13,35 @@ Pré-requisitos
 Node.js (versão X.X.X ou superior)
 .NET SDK (versão X.X ou superior)
 [Outras dependências, se houver]
+
 Instalação
 Clone o repositório do projeto:
-
-bash
-Copy code
 git clone https://github.com/seu-usuario/challenge-nivello-2023.git
-Navegue até o diretório do projeto:
 
-bash
-Copy code
+Navegue até o diretório do projeto:
 cd challenge-nivello-2023
 Frontend (Next.js)
-Instale as dependências do frontend:
 
-bash
-Copy code
+Instale as dependências do frontend:
 cd frontend
 npm install
-Inicie o servidor de desenvolvimento:
 
-arduino
-Copy code
+Inicie o servidor de desenvolvimento:
 npm run dev
 Acesse http://localhost:3000 em seu navegador para visualizar a aplicação frontend.
 
 Backend (.NET)
 Navegue até o diretório do backend:
-
-bash
-Copy code
 cd backend
+
 [Instruções específicas para configurar o ambiente do backend, como instalar pacotes NuGet, configurar banco de dados, etc.]
 
 Inicie o servidor backend:
-
-arduino
-Copy code
 dotnet run
 O servidor backend estará rodando em http://localhost:7414 (ou a porta que você especificar).
 
-Estrutura do Projeto
-lua
-Copy code
+Estrutura do Projeto:
+
 challenge-nivello-2023/
 |-- frontend/                  # Código-fonte do frontend Next.js
 |   |-- pages/                 # Páginas da aplicação
@@ -69,6 +55,7 @@ challenge-nivello-2023/
 |   |-- ...
 |-- README.md                  # Documentação do projeto
 |-- ...
+
 Contribuição
 Para contribuir com este projeto, siga as diretrizes de contribuição e envie um pull request com suas alterações.
 
