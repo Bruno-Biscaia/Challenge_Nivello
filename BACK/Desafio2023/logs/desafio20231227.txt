@@ -1,0 +1,351 @@
+2023-12-27 14:48:06.318 -03:00 [INF] Now listening on: https://localhost:7174
+2023-12-27 14:48:06.363 -03:00 [INF] Now listening on: http://localhost:5017
+2023-12-27 14:48:06.373 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-27 14:48:06.377 -03:00 [INF] Hosting environment: Development
+2023-12-27 14:48:06.379 -03:00 [INF] Content root path: C:\Users\Graff\source\repos\desafio2023\BACK\Desafio2023\src\Desafio.Api
+2023-12-27 14:48:07.125 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - -
+2023-12-27 14:48:07.660 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - -
+2023-12-27 14:48:07.669 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - - - 200 - text/html;charset=utf-8 548.8502ms
+2023-12-27 14:48:07.684 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 24.5829ms
+2023-12-27 14:48:07.742 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - -
+2023-12-27 14:48:07.791 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.1007ms
+2023-12-27 14:48:08.247 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - -
+2023-12-27 14:48:08.485 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 237.9902ms
+2023-12-27 14:50:59.353 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102
+2023-12-27 14:50:59.361 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:50:59.392 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:51:00.834 -03:00 [INF] Executed DbCommand (56ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:51:00.872 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:51:00.955 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 14:51:00.972 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 14:51:01.307 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 14:51:01.320 -03:00 [INF] Usuário string1 foi criado com sucesso!.
+2023-12-27 14:51:01.327 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 14:51:01.332 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 1932.1537ms
+2023-12-27 14:51:01.334 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:51:01.341 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102 - 200 0 - 1987.5315ms
+2023-12-27 14:54:07.943 -03:00 [INF] Now listening on: https://localhost:7174
+2023-12-27 14:54:07.998 -03:00 [INF] Now listening on: http://localhost:5017
+2023-12-27 14:54:08.019 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-27 14:54:08.025 -03:00 [INF] Hosting environment: Development
+2023-12-27 14:54:08.030 -03:00 [INF] Content root path: C:\Users\Graff\source\repos\desafio2023\BACK\Desafio2023\src\Desafio.Api
+2023-12-27 14:54:08.492 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - -
+2023-12-27 14:54:08.834 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - -
+2023-12-27 14:54:08.839 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - - - 200 - text/html;charset=utf-8 349.7262ms
+2023-12-27 14:54:08.849 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 15.6411ms
+2023-12-27 14:54:08.900 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - -
+2023-12-27 14:54:08.930 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.9307ms
+2023-12-27 14:54:09.150 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - -
+2023-12-27 14:54:09.399 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 248.1912ms
+2023-12-27 14:54:27.173 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 92
+2023-12-27 14:54:27.183 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:54:27.215 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:54:28.079 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Desafio.Business.Notificações.Notification, Desafio.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-12-27 14:54:28.088 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 865.4684ms
+2023-12-27 14:54:28.091 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:54:28.096 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 92 - 400 - application/json;+charset=utf-8 922.9927ms
+2023-12-27 14:54:43.892 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102
+2023-12-27 14:54:43.896 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:54:43.899 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:54:44.510 -03:00 [INF] Executed DbCommand (45ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:54:44.548 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:54:44.630 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 14:54:44.646 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 14:54:44.976 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 14:54:44.992 -03:00 [INF] Usuário string2 foi criado com sucesso!.
+2023-12-27 14:54:44.999 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 14:54:45.000 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 1098.9349ms
+2023-12-27 14:54:45.002 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:54:45.006 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102 - 200 0 - 1113.6547ms
+2023-12-27 14:56:15.736 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102
+2023-12-27 14:56:15.740 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:56:15.741 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:56:15.816 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:56:15.824 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:56:15.832 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 14:56:15.837 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 14:56:16.015 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 14:56:16.019 -03:00 [INF] Usuário string3 foi criado com sucesso!.
+2023-12-27 14:56:16.020 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 14:56:16.020 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 275.8793ms
+2023-12-27 14:56:16.021 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:56:16.023 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 102 - 200 0 - 289.7230ms
+2023-12-27 15:14:55.520 -03:00 [INF] Now listening on: https://localhost:7174
+2023-12-27 15:14:55.719 -03:00 [INF] Now listening on: http://localhost:5017
+2023-12-27 15:14:55.730 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-27 15:14:55.735 -03:00 [INF] Hosting environment: Development
+2023-12-27 15:14:55.738 -03:00 [INF] Content root path: C:\Users\Graff\source\repos\desafio2023\BACK\Desafio2023\src\Desafio.Api
+2023-12-27 15:14:56.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - -
+2023-12-27 15:14:56.606 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - - - 200 - text/html;charset=utf-8 484.7906ms
+2023-12-27 15:14:56.774 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - -
+2023-12-27 15:14:56.774 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - -
+2023-12-27 15:14:56.788 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 14.1780ms
+2023-12-27 15:14:56.802 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.2658ms
+2023-12-27 15:14:56.919 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - -
+2023-12-27 15:14:57.086 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.8884ms
+2023-12-27 15:15:14.420 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/api/Role/roles - -
+2023-12-27 15:15:14.430 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.RoleController.GetAllRoles (Desafio.Api)'
+2023-12-27 15:15:14.457 -03:00 [INF] Route matched with {action = "GetAllRoles", controller = "Role"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRoles() on controller Desafio.Api.Controllers.RoleController (Desafio.Api).
+2023-12-27 15:15:16.985 -03:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+2023-12-27 15:15:17.033 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Desafio.Business.Models.Role, Desafio.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-12-27 15:15:17.054 -03:00 [INF] Executed action Desafio.Api.Controllers.RoleController.GetAllRoles (Desafio.Api) in 2588.2859ms
+2023-12-27 15:15:17.057 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.RoleController.GetAllRoles (Desafio.Api)'
+2023-12-27 15:15:17.066 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/api/Role/roles - - - 200 - application/json;+charset=utf-8 2646.7078ms
+2023-12-27 15:15:36.836 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/api/User/user/47d7d877-be74-4479-d169-08dc065267c8 - -
+2023-12-27 15:15:36.839 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.GetUserById (Desafio.Api)'
+2023-12-27 15:15:36.852 -03:00 [INF] Route matched with {action = "GetUserById", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserById(System.Guid, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:15:37.180 -03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:15:37.192 -03:00 [INF] Executing OkObjectResult, writing value of type 'Desafio.Api.ViewModel.UserViewModel'.
+2023-12-27 15:15:37.195 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.GetUserById (Desafio.Api) in 340.2829ms
+2023-12-27 15:15:37.196 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.GetUserById (Desafio.Api)'
+2023-12-27 15:15:37.197 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/api/User/user/47d7d877-be74-4479-d169-08dc065267c8 - - - 200 - application/json;+charset=utf-8 361.4821ms
+2023-12-27 15:15:59.849 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/api/User/list-users - -
+2023-12-27 15:15:59.852 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api)'
+2023-12-27 15:15:59.857 -03:00 [INF] Route matched with {action = "GetUserByRoleId", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserByRoleId(System.Nullable`1[System.Int32], System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:15:59.936 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2023-12-27 15:15:59.950 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Desafio.Api.ViewModel.UserViewModel, Desafio.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-12-27 15:15:59.951 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api) in 91.2695ms
+2023-12-27 15:15:59.952 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api)'
+2023-12-27 15:15:59.954 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/api/User/list-users - - - 200 - application/json;+charset=utf-8 104.3211ms
+2023-12-27 15:16:11.685 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/api/User/list-users?roleId=3 - -
+2023-12-27 15:16:11.687 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api)'
+2023-12-27 15:16:11.688 -03:00 [INF] Route matched with {action = "GetUserByRoleId", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserByRoleId(System.Nullable`1[System.Int32], System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:16:11.731 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[RoleId] = @__roleId_0
+2023-12-27 15:16:11.735 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Desafio.Api.ViewModel.UserViewModel, Desafio.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-12-27 15:16:11.736 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api) in 44.3708ms
+2023-12-27 15:16:11.738 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.GetUserByRoleId (Desafio.Api)'
+2023-12-27 15:16:11.739 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/api/User/list-users?roleId=3 - - - 200 - application/json;+charset=utf-8 54.1677ms
+2023-12-27 15:16:52.620 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=2e9d5066-9abe-4845-d16a-08dc065267c8 application/json 101
+2023-12-27 15:16:52.622 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 15:16:52.627 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:16:52.652 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-12-27 15:16:52.658 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 28.9091ms
+2023-12-27 15:16:52.659 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 15:16:52.661 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=2e9d5066-9abe-4845-d16a-08dc065267c8 application/json 101 - 400 - application/problem+json;+charset=utf-8 40.3886ms
+2023-12-27 15:17:01.875 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=2e9d5066-9abe-4845-d16a-08dc065267c8 application/json 105
+2023-12-27 15:17:01.877 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 15:17:01.879 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:17:01.963 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 15:17:01.976 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 15:17:01.996 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:17:02.013 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE 0 = 1
+2023-12-27 15:17:02.397 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 15:17:02.412 -03:00 [INF] Usuário string4 foi criado com sucesso!.
+2023-12-27 15:17:02.416 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 15:17:02.417 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 535.7519ms
+2023-12-27 15:17:02.418 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 15:17:02.419 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=2e9d5066-9abe-4845-d16a-08dc065267c8 application/json 105 - 200 0 - 544.1452ms
+2023-12-27 15:18:08.316 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/login application/json 52
+2023-12-27 15:18:08.323 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.Login (Desafio.Api)'
+2023-12-27 15:18:08.327 -03:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Desafio.Api.ViewModel.UserLoginViewModel) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:18:08.345 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0
+2023-12-27 15:18:08.435 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2023-12-27 15:18:08.441 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.Login (Desafio.Api) in 112.7296ms
+2023-12-27 15:18:08.442 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.Login (Desafio.Api)'
+2023-12-27 15:18:08.443 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 127.0293ms
+2023-12-27 15:18:51.258 -03:00 [INF] Request starting HTTP/2 PUT https://localhost:7174/api/User/user-edit/83742967-0b70-4f45-8595-08dc0703c25f?currentUserId=47d7d877-be74-4479-d169-08dc065267c8 application/json 38
+2023-12-27 15:18:51.259 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.EditUser (Desafio.Api)'
+2023-12-27 15:18:51.263 -03:00 [INF] Route matched with {action = "EditUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EditUser(Desafio.Business.Models.Request.UserEditRequest, System.Guid, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 15:18:51.276 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:18:51.295 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 15:18:51.301 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:18:51.305 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 15:18:51.391 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int16), @p1='?' (Size = 4000), @p7='?' (DbType = Guid), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Roles] SET [Level] = @p0, [Role] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+UPDATE [Users] SET [Email] = @p3, [FullName] = @p4, [MainPassword] = @p5, [RoleId] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2023-12-27 15:18:51.408 -03:00 [INF] Usuário int foi editado com sucesso!.
+2023-12-27 15:18:51.410 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 15:18:51.411 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.EditUser (Desafio.Api) in 145.4722ms
+2023-12-27 15:18:51.411 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.EditUser (Desafio.Api)'
+2023-12-27 15:18:51.412 -03:00 [INF] Request finished HTTP/2 PUT https://localhost:7174/api/User/user-edit/83742967-0b70-4f45-8595-08dc0703c25f?currentUserId=47d7d877-be74-4479-d169-08dc065267c8 application/json 38 - 200 0 - 154.3614ms
+2023-12-27 15:20:39.869 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Role/assignRoleToUser?userId=8d704ed0-dafa-4268-9393-08dc07080610&currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8&roleId=2 - 0
+2023-12-27 15:20:39.872 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api)'
+2023-12-27 15:20:39.877 -03:00 [INF] Route matched with {action = "AssingnRoleToUser", controller = "Role"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AssingnRoleToUser(System.Guid, System.Guid, Int32) on controller Desafio.Api.Controllers.RoleController (Desafio.Api).
+2023-12-27 15:20:39.892 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:20:39.900 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:20:39.905 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 15:20:39.908 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Desafio.Business.Notificações.Notification, Desafio.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-12-27 15:20:39.911 -03:00 [INF] Executed action Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api) in 32.2149ms
+2023-12-27 15:20:39.912 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api)'
+2023-12-27 15:20:39.913 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Role/assignRoleToUser?userId=8d704ed0-dafa-4268-9393-08dc07080610&currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8&roleId=2 - 0 - 400 - application/json;+charset=utf-8 44.4684ms
+2023-12-27 15:20:45.335 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Role/assignRoleToUser?userId=8d704ed0-dafa-4268-9393-08dc07080610&currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8&roleId=3 - 0
+2023-12-27 15:20:45.337 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api)'
+2023-12-27 15:20:45.338 -03:00 [INF] Route matched with {action = "AssingnRoleToUser", controller = "Role"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AssingnRoleToUser(System.Guid, System.Guid, Int32) on controller Desafio.Api.Controllers.RoleController (Desafio.Api).
+2023-12-27 15:20:45.348 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:20:45.359 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 15:20:45.367 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 15:20:45.465 -03:00 [INF] Executed DbCommand (91ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int16), @p1='?' (Size = 4000), @p7='?' (DbType = Guid), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Roles] SET [Level] = @p0, [Role] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+UPDATE [Users] SET [Email] = @p3, [FullName] = @p4, [MainPassword] = @p5, [RoleId] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2023-12-27 15:20:45.471 -03:00 [INF] Role vinculada com sucesso!. string4 - Role: Supervisor
+2023-12-27 15:20:45.471 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 15:20:45.472 -03:00 [INF] Executed action Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api) in 130.8784ms
+2023-12-27 15:20:45.473 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.RoleController.AssingnRoleToUser (Desafio.Api)'
+2023-12-27 15:20:45.474 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Role/assignRoleToUser?userId=8d704ed0-dafa-4268-9393-08dc07080610&currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8&roleId=3 - 0 - 200 0 - 139.7256ms

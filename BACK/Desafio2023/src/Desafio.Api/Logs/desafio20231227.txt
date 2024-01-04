@@ -1,0 +1,102 @@
+2023-12-27 14:43:49.070 -03:00 [INF] Now listening on: https://localhost:7174
+2023-12-27 14:43:49.116 -03:00 [INF] Now listening on: http://localhost:5017
+2023-12-27 14:43:49.125 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-27 14:43:49.129 -03:00 [INF] Hosting environment: Development
+2023-12-27 14:43:49.133 -03:00 [INF] Content root path: C:\Users\Graff\source\repos\desafio2023\BACK\Desafio2023\src\Desafio.Api
+2023-12-27 14:43:50.757 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - -
+2023-12-27 14:43:51.172 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - -
+2023-12-27 14:43:51.179 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - - - 200 - text/html;charset=utf-8 426.7633ms
+2023-12-27 14:43:51.187 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 14.6003ms
+2023-12-27 14:43:51.250 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - -
+2023-12-27 14:43:51.296 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.1366ms
+2023-12-27 14:43:51.602 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - -
+2023-12-27 14:43:51.825 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 223.2559ms
+2023-12-27 14:44:28.225 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 103
+2023-12-27 14:44:28.233 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:44:28.273 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:44:30.133 -03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:44:30.179 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:44:30.282 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 14:44:30.305 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 14:44:30.713 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 14:44:30.733 -03:00 [INF] Usuário user teste foi criado com sucesso!.
+2023-12-27 14:44:30.743 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 14:44:30.750 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 2469.7989ms
+2023-12-27 14:44:30.754 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:44:30.765 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 103 - 200 0 - 2541.0906ms
+2023-12-27 14:45:47.227 -03:00 [INF] Now listening on: https://localhost:7174
+2023-12-27 14:45:47.381 -03:00 [INF] Now listening on: http://localhost:5017
+2023-12-27 14:45:47.398 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-27 14:45:47.404 -03:00 [INF] Hosting environment: Development
+2023-12-27 14:45:47.407 -03:00 [INF] Content root path: C:\Users\Graff\source\repos\desafio2023\BACK\Desafio2023\src\Desafio.Api
+2023-12-27 14:45:48.775 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - -
+2023-12-27 14:45:49.310 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - -
+2023-12-27 14:45:49.322 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - - - 200 - text/html;charset=utf-8 554.1245ms
+2023-12-27 14:45:49.331 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - - - 200 12354 application/javascript;+charset=utf-8 19.9752ms
+2023-12-27 14:45:49.396 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - -
+2023-12-27 14:45:49.435 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.5093ms
+2023-12-27 14:45:49.713 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - -
+2023-12-27 14:45:49.928 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 214.9961ms
+2023-12-27 14:46:28.195 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 100
+2023-12-27 14:46:28.206 -03:00 [INF] Executing endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:46:28.240 -03:00 [INF] Route matched with {action = "InsertUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertUser(Desafio.Business.Models.Request.UserRequest, System.Guid) on controller Desafio.Api.Controllers.UserController (Desafio.Api).
+2023-12-27 14:46:30.226 -03:00 [INF] Executed DbCommand (59ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:46:30.287 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__fullNameOrEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[FullName] = @__fullNameOrEmail_0 OR [u].[Email] = @__fullNameOrEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-12-27 14:46:30.421 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[FullName], [u].[MainPassword], [u].[RoleId], [r].[Id], [r].[Level], [r].[Role]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Id] = @__id_0
+2023-12-27 14:46:30.440 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Level], [r].[Role]
+FROM [Roles] AS [r]
+WHERE [r].[Id] = @__roleId_0
+2023-12-27 14:46:30.870 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [FullName], [MainPassword], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-12-27 14:46:30.889 -03:00 [INF] Usuário string foi criado com sucesso!.
+2023-12-27 14:46:30.900 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-12-27 14:46:30.907 -03:00 [INF] Executed action Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api) in 2657.5936ms
+2023-12-27 14:46:30.910 -03:00 [INF] Executed endpoint 'Desafio.Api.Controllers.UserController.InsertUser (Desafio.Api)'
+2023-12-27 14:46:30.923 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7174/api/User/user?currentUserId=ee72741a-ef22-4d42-d168-08dc065267c8 application/json 100 - 200 0 - 2729.1864ms
